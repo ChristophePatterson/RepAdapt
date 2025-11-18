@@ -3,27 +3,28 @@
 
 # Variables
 # Name of general working directory
-MAIN=
+MAIN=/gpfs01/home/mbzcp2/code/Github/RepAdapt/data
 # Name of directory where snp calling is happening
-DATASET=
+DATASET=stickleback
 SPECIES_DIR=$MAIN/$DATASET
 cd $SPECIES_DIR
 
 # Point to directory where scripts are
-PIPE_DIR=
+PIPE_DIR=/gpfs01/home/mbzcp2/code/Github/RepAdapt/snp_calling_pipeline/mpileup_pipeline
 
 # Set metadata
 DATATABLE=$SPECIES_DIR/02_info_files/datatable.txt
 
 # Set Email for slurm reports
-EMAIL=
+EMAIL=christophe.patterson@nottingham.ac.uk
 
 # Set ComputeCanada account
-CC_ACCOUNT=
+CC_ACCOUNT=mbzcp2
 
 # How many samples are there?
 FASTQ_N=$( ls $SPECIES_DIR/04_raw_data/*fastq.gz | wc -l )
-FILE_ARRAY=$(( $FASTQ_N / 2 ))
+FQ_N=$( ls $SPECIES_DIR/04_raw_data/*fq.gz | wc -l )
+FILE_ARRAY=$(( ($FASTQ_N + $FQ_N) / 2 ))
 
 '''
 ##########################

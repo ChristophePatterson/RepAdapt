@@ -6,12 +6,11 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=100G
 #SBATCH --time=0-12:00:00
-#SBATCH --account=def-yeaman
 #SBATCH -D .
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=james.whiting@ucalgary.ca
+#SBATCH --mail-user=christophe.patterson@nottingham.ac.uk
 
-module load bwa samtools picard
+module load bwa-uoneasy samtools-uoneasy picard-uoneasy
 
 GENOME=$1
 
